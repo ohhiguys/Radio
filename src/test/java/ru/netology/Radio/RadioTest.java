@@ -14,6 +14,13 @@ public class RadioTest {
     }
 
     @Test
+    public void userRadio() {
+        Radio user = new Radio(56);
+
+        Assertions.assertEquals(56, user.getAmountStations());
+    }
+
+    @Test
     public void shouldSwitchNextStation() {
         Radio station = new Radio(10, 0, 4, 100, 0, 4);
 

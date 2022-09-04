@@ -3,6 +3,7 @@ package ru.netology.Radio;
 public class Radio {
     public int maxStation = 9;
     public int minStation = 0;
+    public int userStations;
     public int currentStation;
     public int maxVolume = 10;
     public int minVolume = 0;
@@ -20,6 +21,14 @@ public class Radio {
         this.maxVolume = maxVolume;
         this.minVolume = minVolume;
         this.currentVolume = currentVolume;
+    }
+
+    public Radio(int userStations) {
+        this.userStations = userStations;
+    }
+
+    public int getAmountStations() {
+        return userStations;
     }
 
     public Radio() {
