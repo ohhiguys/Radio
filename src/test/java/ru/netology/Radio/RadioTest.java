@@ -6,17 +6,39 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     @Test
-    public void userRadio() {
-        Radio user = new Radio(156);
+    public void testUserRadio() {
+        Radio user = new Radio(20);
 
-        Assertions.assertEquals(156, user.getAmountStations());
+        user.setCurrentStation(15);
+
+        Assertions.assertEquals(15, user.getCurrentStation());
+    }
+
+    @Test
+    public void nextUserStation() {
+        Radio user = new Radio(35);
+
+        user.setCurrentStation(28);
+        user.pressNextStation();
+
+        Assertions.assertEquals(29, user.getCurrentStation());
+    }
+
+    @Test
+    public void prevUserStation() {
+        Radio user = new Radio(40);
+
+        user.setCurrentStation(18);
+        user.pressPrevStation();
+
+        Assertions.assertEquals(17, user.getCurrentStation());
     }
 
     @Test
     public void shouldGetMaxStation() {
         Radio station = new Radio();
 
-        Assertions.assertEquals(10, station.getMaxStation());
+        Assertions.assertEquals(9, station.getMaxStation());
     }
 
     @Test
@@ -43,7 +65,7 @@ public class RadioTest {
         station.setCurrentStation(10);
         station.pressNextStation();
 
-        Assertions.assertEquals(0, station.getCurrentStation());
+        Assertions.assertEquals(1, station.getCurrentStation());
     }
 
     @Test
@@ -63,14 +85,14 @@ public class RadioTest {
         station.setCurrentStation(0);
         station.pressPrevStation();
 
-        Assertions.assertEquals(10, station.getCurrentStation());
+        Assertions.assertEquals(9, station.getCurrentStation());
     }
 
     @Test
     public void shouldGetLastStation() {
         Radio station = new Radio();
 
-        Assertions.assertEquals(10, station.getMaxStation());
+        Assertions.assertEquals(9, station.getMaxStation());
     }
 
     @Test
