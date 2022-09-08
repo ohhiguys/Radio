@@ -1,28 +1,35 @@
 package ru.netology.Radio;
 
 public class Radio {
-    public int currentStation;
-    public int maxStation = 9;
-    public int minStation = 0;
-    public int currentVolume;
-    public int maxVolume = 10;
-    public int minVolume = 0;
+    private int maxStation;
+    private int minStation = 0;
+    private int currentStation;
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    private int currentVolume;
 
+    public Radio() {
+        maxStation = 9;
+    }
+
+    public Radio(int userStations) {
+        maxStation = userStations - 1;
+    }
 
     public int getMaxStation() {
         return maxStation;
     }
 
-    public void setMaxStation() {
-        currentStation = 9;
+    public void setMaxStation(int maxStation) {
+        this.maxStation = maxStation;
     }
 
     public int getMinStation() {
         return minStation;
     }
 
-    public void setMinStation() {
-        currentStation = 0;
+    public void setMinStation(int minStation) {
+        this.minStation = minStation;
     }
 
     public int getCurrentStation() {
@@ -46,11 +53,11 @@ public class Radio {
             setCurrentStation(currentStation + 1);
         }
     }
+
     public void pressPrevStation() {
         if (currentStation <= minStation) {
             setCurrentStation(maxStation);
-        }
-        else {
+        } else {
             setCurrentStation(currentStation - 1);
         }
     }
@@ -59,16 +66,16 @@ public class Radio {
         return maxVolume;
     }
 
-    public void setMaxVolume() {
-        currentVolume = 10;
+    public void setMaxVolume(int maxVolume) {
+        this.maxVolume = maxVolume;
     }
 
     public int getMinVolume() {
         return minVolume;
     }
 
-    public void setMinVolume() {
-        currentVolume = 0;
+    public void setMinVolume(int minVolume) {
+        this.minVolume = minVolume;
     }
 
     public int getCurrentVolume() {
@@ -86,8 +93,8 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
-            currentVolume = currentVolume +1;
+        if (currentVolume < maxStation) {
+            currentVolume = currentVolume + 1;
         }
     }
 
